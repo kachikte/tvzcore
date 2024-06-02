@@ -1,0 +1,63 @@
+require('dotenv').config()
+
+const dbName = process.env.DB_NAME
+const dbUsername = process.env.DB_USERNAME
+const dbPassword = process.env.DB_PASSWORD
+const SECRETKEY = "6ce004f3312f784493a3920be0875d911f0b744ac1764cc84381e25726d0bbff"
+
+
+const BADREQUESTCODE = 400
+const UNPROCESSABLEENTITYCODE = 422
+const SUCCESSCODE = 200
+const CREATEDCODE = 201
+const FORBIDDENCODE =403
+const UNAUTHORIZEDCODE = 401
+const SERVERERRORCODE = 500
+const DUPLICATEDATACODE = 409
+const NOTFOUNDCODE = 404
+
+const BADEQUESTMESSAGE = 'Bad Request'
+const UNPROCESSABLEENTITYMESSAGE = 'Unprocessable Entity'
+const SUCCESSMESSAGE = 'Success'
+const CREATEDMESSAGE = 'Created'
+const FORBIDDENMESSAGE = 'Forbidden'
+const UNAUTHORIZEDMESSAGE = 'Unauthorized'
+const SERVERERRORMESSAGE = "Unable to process data"
+const DUPLICATEDATAMESSAGE = "Duplicate data"
+const NOTFOUNDMESSAGE = "Data not found"
+
+
+const ADMIN = 'admin'
+const USER = 'user'
+
+
+module.exports = {
+    dbName,
+    dbUsername,
+    dbPassword,
+    BADREQUESTCODE,
+    UNPROCESSABLEENTITYCODE,
+    SUCCESSCODE,
+    CREATEDCODE,
+    FORBIDDENCODE,
+    UNAUTHORIZEDCODE,
+    SERVERERRORCODE,
+    DUPLICATEDATACODE,
+    NOTFOUNDCODE,
+
+
+    BADEQUESTMESSAGE,
+    UNPROCESSABLEENTITYMESSAGE,
+    SUCCESSMESSAGE,
+    CREATEDMESSAGE,
+    FORBIDDENMESSAGE,
+    UNAUTHORIZEDMESSAGE,
+    SERVERERRORMESSAGE,
+    DUPLICATEDATAMESSAGE,
+    NOTFOUNDMESSAGE,
+
+
+    ADMIN,
+    USER,
+    SECRETKEY
+}
