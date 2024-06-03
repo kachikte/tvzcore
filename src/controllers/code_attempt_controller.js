@@ -2,6 +2,8 @@ const CodeAttempt = require('../models/CodeAttempt')
 const axios = require('axios');
 const constants = require('../utils/constants');
 const ResponseDto = require('../dto/response_dto')
+const sanitizeHtml = require('sanitize-html');
+
 
 const JUDGE0_API_URL = 'https://judge0-ce.p.rapidapi.com/submissions';
 const RAPIDAPI_KEY = 'd7cd3168c1msh2745150b4938343p19458djsn7f75d6b80d60'; 
@@ -106,7 +108,12 @@ exports.addProblem = async (req, res) => {
     }
 
     CodeAttempt.findAll().then(attempts => {
-        return res.status(constants.SUCCESSCODE).json(new ResponseDto(constants.SUCCESSCODE, constants.SUCCESSMESSAGE, attempts))
+        return attempts.map(attempt => ({
+            ...attempt,
+            code: sanitizeHtml(attempt.code),
+          }));
+    }).then(sanitizedAttempts => {
+        return res.status(constants.SUCCESSCODE).json(new ResponseDto(constants.SUCCESSCODE, constants.SUCCESSMESSAGE, sanitizedAttempts))
     }).catch(err => {
         return res.status(constants.SERVERERRORCODE).json(new ResponseDto(constants.SERVERERRORCODE, constants.SERVERERRORMESSAGE, err.toString()))
     })

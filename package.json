@@ -5,7 +5,6 @@
   "scripts": {
     "test": "nodemon src/server.js",
     "build": "nodemon src/server.js"
-
   },
   "repository": {
     "type": "git",
@@ -23,6 +22,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "csurf": "^1.11.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
@@ -32,6 +32,7 @@
     "nodemon": "^3.1.2",
     "pg": "^8.11.5",
     "pg-hstore": "^2.3.4",
+    "sanitize-html": "^2.13.0",
     "sequelize": "^6.37.3"
   },
   "devDependencies": {
