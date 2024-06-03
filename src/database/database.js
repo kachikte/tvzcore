@@ -1,8 +1,9 @@
 const dotenv = require('dotenv')
 dotenv.config()
 const Sequelize = require('sequelize')
+const { DB_NAME, DB_USER, DB_PASSWORD, DB_DIALECT, DB_HOST} = process.env
 console.log(process.env)
-const sequelize = new Sequelize('tvz', 'root', 'password', {dialect: 'mysql', host: 'localhost', logging: (msg) => console.log(msg) // Enable detailed logging
+const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {dialect: DB_DIALECT, host: DB_HOST, logging: (msg) => console.log(msg) // Enable detailed logging
 }, )
 
 // const sequelize = new Sequelize('postgres://root:password@hostname:3333/tvz')
