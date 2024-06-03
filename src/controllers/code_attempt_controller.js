@@ -130,7 +130,12 @@ exports.addProblem = async (req, res) => {
             userEmail: email
         }
     }).then(attempts => {
-        return res.status(constants.SUCCESSCODE).json(new ResponseDto(constants.SUCCESSCODE, constants.SUCCESSMESSAGE, attempts))
+        return attempts.map(attempt => ({
+            ...attempt,
+            code: sanitizeHtml(attempt.code),
+          }));
+    }).then(sanitizedAttempts => {
+        return res.status(constants.SUCCESSCODE).json(new ResponseDto(constants.SUCCESSCODE, constants.SUCCESSMESSAGE, sanitizedAttempts))
     }).catch(err => {
         console.log('GET ATTEMPTS ERROR - ', err.toString());
         // return res.status(constants.SERVERERRORCODE).json(new ResponseDto(constants.SERVERERRORCODE, constants.SERVERERRORMESSAGE, err.toString()))
