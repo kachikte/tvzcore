@@ -1,6 +1,7 @@
 require('./utils/constants')
 const express = require('express')
 const cors = require('cors')
+const bodyParser = require('body-parser');
 
 const sequelize = require('./database/database');
 const verificationMiddleware = require('./middleware/verification_middleware')
@@ -12,6 +13,8 @@ const Role = require('./models/Role')
 const roleRoute = require('./routes/role_route')
 const userRoute = require('./routes/user_route')
 const authRoute = require('./routes/auth_route')
+const codeAttemptRoute = require('./routes/code_attempt_route');
+const CodeAttempt = require('./models/CodeAttempt');
 
 const app = express()
 
@@ -25,9 +28,9 @@ app.use(cors({origin: '*'}))
 app.use('/role', verificationMiddleware.adminVerification, roleRoute)
 app.use('/user', userRoute)
 app.use('/admin', verificationMiddleware.adminVerification, userRoute)
-app.use('/auth', authRoute)
-
-
+app.use('/adminattempts', verificationMiddleware.adminVerification, codeAttemptRoute)
+app.use('/auth', authRoute),
+app.use('/code', verificationMiddleware.userVerification, codeAttemptRoute)
 
 //Relationship declarations
 User.belongsTo(Role)
