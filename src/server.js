@@ -55,4 +55,4 @@ sequelize.sync({ force: false }).then(result => {
     console.log(err);
 })
 
-module.exports = app
+// module.exports = app
