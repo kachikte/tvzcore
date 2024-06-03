@@ -1,5 +1,7 @@
+const dotenv = require('dotenv')
+dotenv.config()
 const Sequelize = require('sequelize')
-
+console.log(process.env)
 const sequelize = new Sequelize('tvz', 'root', 'password', {dialect: 'mysql', host: 'localhost', logging: (msg) => console.log(msg) // Enable detailed logging
 }, )
 
