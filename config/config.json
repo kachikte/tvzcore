@@ -1,14 +1,23 @@
 {
   "development": {
-    "use_env_variable": "DATABASE_URL",
-    "dialect": "postgres"
+    "username": "root2",
+    "password": "password",
+    "database": "tvz",
+    "host": "102.38.58.79",
+    "dialect": "mysql"
   },
   "test": {
-    "use_env_variable": "DATABASE_URL",
-    "dialect": "postgres"
+    "username": "root2",
+    "password": "password",
+    "database": "tvz",
+    "host": "102.38.58.79",
+    "dialect": "mysql"
   },
   "production": {
-    "use_env_variable": "DATABASE_URL",
-    "dialect": "postgres"
+    "username": "root2",
+    "password": "password",
+    "database": "tvz",
+    "host": "102.38.58.79",
+    "dialect": "mysql"
   }
 }
