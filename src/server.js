@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 require('./utils/constants')
 const express = require('express')
 const cors = require('cors')
@@ -35,11 +37,22 @@ app.use('/code', verificationMiddleware.userVerification, codeAttemptRoute)
 //Relationship declarations
 User.belongsTo(Role)
 
+app.listen(4000, async () => {
+    try {
+      await sequelize.authenticate();
+      console.log('Database connected!');
+    } catch (error) {
+      console.error('Unable to connect to the database:', error);
+    }
+  });
+
 // Synchronize database
-sequelize.sync({ force: false }).then(result => {
-    console.log('============== The database has been synchronized ====================');
-    app.listen(process.env.PORT || 4000)
-}).catch(err => {
-    console.log('========== This is the error ==================');
-    console.log(err);
-})
+// sequelize.sync({ force: false }).then(result => {
+//     console.log('============== The database has been synchronized ====================');
+//     app.listen(process.env.PORT || 4000)
+// }).catch(err => {
+//     console.log('========== This is the error ==================');
+//     console.log(err);
+// })
+
+module.exports = app
