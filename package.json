@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "nodemon src/server.js"
+    "test": "nodemon src/server.js",
+    "build": "nodemon src/server.js"
+
   },
   "repository": {
     "type": "git",
